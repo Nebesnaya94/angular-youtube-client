@@ -1,0 +1,50 @@
+.filter-settings,
+.list-item.input {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-settings {
+    padding: 18px 0;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.settings-list {
+    display: flex;
+    gap: 20px;
+    .list-item {
+        color: #2f80ed;
+    }
+}
+
+.filter-title {
+    color: #929292;
+}
+
+.underline {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.input {
+    input {
+        height: fit-content;
+    }
+}
+
+@media (max-width: 549px) {
+    .filter-settings,
+    .settings-list {
+        flex-direction: column;
+    }
+
+    .filter-settings {
+        gap: 20px;
+        padding-left: 20px;
+    }
+
+    .settings-list {
+        gap: 10px;
+    }
+}

@@ -1,0 +1,23 @@
+mat-card {
+    width: 430px;
+    margin: 0 auto;
+    background: #f2f2f2;
+
+    @media (max-width: 499px) {
+        width: 350px;
+    }
+
+    @media (max-width: 399px) {
+        width: 270px;
+    }
+}
+
+:host {
+    margin: 30px;
+}
+
+.form-card {
+    .button-container {
+        margin: 30px 0 10px;
+    }
+}

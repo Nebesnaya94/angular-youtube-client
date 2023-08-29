@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <mat-card>
+    <div class="card-image">
+      <img src="{{ detailsItem.imageLink }}" alt="" />
+    </div>
+    <mat-card-content>
+      <div class="card-text">
+        <div class="card-title">
+          <h2>{{ detailsItem.title }}</h2>
+          <p class="card-date">
+            {{ detailsItem.creationDate | date : "fullDate" }}
+          </p>
+        </div>
+        <div class="card-description">
+          <div class="description-title">Description:</div>
+          <div class="description-text">
+            {{ detailsItem.description }}
+          </div>
+        </div>
+      </div>
+      <div class="card-bottom">
+        <ul class="statistics-list">
+          <li class="list-item">
+            <mat-icon>visibility</mat-icon
+            ><span>{{ detailsItem.statistics.viewCount }}</span>
+          </li>
+          <li class="list-item">
+            <mat-icon>thumb_up</mat-icon
+            ><span>{{ detailsItem.statistics.likeCount }}</span>
+          </li>
+          <li class="list-item">
+            <mat-icon> forum</mat-icon
+            ><span>{{ detailsItem.statistics.commentCount }}</span>
+          </li>
+        </ul>
+        <div
+          [itemDate]="detailsItem.creationDate"
+          appColorfulBorder
+          class="card-indicator"
+        ></div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-content
+    ><div class="card-content">
+      <div class="card-image">
+        <img src="{{ searchItem.imageLink }}" alt="" />
+      </div>
+      <ul class="statistics-list">
+        <li class="list-item">
+          <mat-icon>visibility</mat-icon
+          ><span>{{ searchItem.statistics.viewCount }}</span>
+        </li>
+        <li class="list-item">
+          <mat-icon>thumb_up</mat-icon
+          ><span>{{ searchItem.statistics.likeCount }}</span>
+        </li>
+        <li class="list-item">
+          <mat-icon> forum</mat-icon
+          ><span>{{ searchItem.statistics.commentCount }}</span>
+        </li>
+      </ul>
+      <div class="card-title">{{ searchItem.title }}</div>
+    </div>
+    <div class="card-more">
+      <button
+        [routerLink]="['/details', searchItem.id]"
+        routerLinkActive="active-link"
+        mat-raised-button
+        color="primary"
+      >
+        more...
+      </button>
+    </div>
+  </mat-card-content>
+  <div
+    [itemDate]="searchItem.creationDate"
+    appColorfulBorder
+    class="card-indicator"
+  ></div>
+</mat-card>

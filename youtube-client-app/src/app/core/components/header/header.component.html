@@ -1,0 +1,210 @@
+<header>
+  <div class="wrapper">
+    <div class="header-container">
+      <div class="search-container">
+        <div class="admin-logo">
+          <button
+            class="menu-btn"
+            mat-icon-button
+            [matMenuTriggerFor]="headerMenu"
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>reorder</mat-icon>
+          </button>
+          <mat-menu #headerMenu="matMenu">
+            <button routerLink="/main" routerLinkActive="active" mat-menu-item>
+              <mat-icon>perm_media</mat-icon>
+              <span>Cards list</span>
+            </button>
+            <button (click)="changeFiltersVisibility()" mat-menu-item>
+              <mat-icon>cached</mat-icon>
+              <span>Card sorting</span>
+            </button>
+            <button routerLink="/admin" routerLinkActive="active" mat-menu-item>
+              <mat-icon>note_add</mat-icon>
+              <span>Add new card</span>
+            </button>
+          </mat-menu>
+
+          <svg
+            routerLink="/admin"
+            routerLinkActive="active"
+            class="admin-link"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="35px"
+            height="35px"
+            viewBox="0 0 122.875 122.648"
+            enable-background="new 0 0 122.875 122.648"
+            xml:space="preserve"
+          >
+            <g style="fill: #3f51b5">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M108.993,47.079c7.683-0.059,13.898,6.12,13.882,13.805 c-0.018,7.683-6.26,13.959-13.942,14.019L75.24,75.138l-0.235,33.73c-0.063,7.619-6.338,13.789-14.014,13.78 c-7.678-0.01-13.848-6.197-13.785-13.818l0.233-33.497l-33.558,0.235C6.2,75.628-0.016,69.448,0,61.764 c0.018-7.683,6.261-13.959,13.943-14.018l33.692-0.236l0.236-33.73C47.935,6.161,54.209-0.009,61.885,0 c7.678,0.009,13.848,6.197,13.784,13.818l-0.233,33.497L108.993,47.079L108.993,47.079z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div routerLink="/main" routerLinkActive="active" class="youtube-logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+            width="50"
+            height="50"
+            viewBox="0 0 256 256"
+            xml:space="preserve"
+          >
+            <defs></defs>
+            <g
+              style="
+                stroke: none;
+                stroke-width: 0;
+                stroke-dasharray: none;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                stroke-miterlimit: 10;
+                fill: none;
+                fill-rule: nonzero;
+                opacity: 1;
+              "
+              transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+            >
+              <path
+                d="M 88.119 23.338 c -1.035 -3.872 -4.085 -6.922 -7.957 -7.957 C 73.144 13.5 45 13.5 45 13.5 s -28.144 0 -35.162 1.881 c -3.872 1.035 -6.922 4.085 -7.957 7.957 C 0 30.356 0 45 0 45 s 0 14.644 1.881 21.662 c 1.035 3.872 4.085 6.922 7.957 7.957 C 16.856 76.5 45 76.5 45 76.5 s 28.144 0 35.162 -1.881 c 3.872 -1.035 6.922 -4.085 7.957 -7.957 C 90 59.644 90 45 90 45 S 90 30.356 88.119 23.338 z"
+                style="
+                  stroke: none;
+                  stroke-width: 1;
+                  stroke-dasharray: none;
+                  stroke-linecap: butt;
+                  stroke-linejoin: miter;
+                  stroke-miterlimit: 10;
+                  fill: #3f51b5;
+                  fill-rule: nonzero;
+                  opacity: 1;
+                "
+                transform=" matrix(1 0 0 1 0 0) "
+                stroke-linecap="round"
+              />
+              <polygon
+                points="36,58.5 59.38,45 36,31.5 "
+                style="
+                  stroke: none;
+                  stroke-width: 1;
+                  stroke-dasharray: none;
+                  stroke-linecap: butt;
+                  stroke-linejoin: miter;
+                  stroke-miterlimit: 10;
+                  fill: rgb(255, 255, 255);
+                  fill-rule: nonzero;
+                  opacity: 1;
+                "
+                transform="  matrix(1 0 0 1 0 0) "
+              />
+            </g>
+          </svg>
+        </div>
+        <div class="search-field">
+          <form>
+            <mat-form-field class="form-field">
+              <input
+                name="search"
+                [(ngModel)]="searchString"
+                (input)="showSearchResults(searchString)"
+                (keydown.enter)="showSearchResults(searchString)"
+                matInput
+                autocomplete="off"
+                placeholder="What do you want to find out?"
+              />
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="filter-button">
+          <svg
+            (click)="changeFiltersVisibility()"
+            width="45"
+            height="45"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g filter="url(#filter0_d_28226_373)">
+              <rect x="2" y="4" width="24" height="24" rx="5" fill="#3f51b5" />
+              <path
+                d="M15.5613 21.1136C15.7849 20.5128 16.2933 20.0909 16.8846 20.0909C17.476 20.0909 17.9844 20.5128 18.2079 21.1136H20.9231C21.2404 21.1136 21.5 21.4205 21.5 21.7955C21.5 22.1705 21.2404 22.4773 20.9231 22.4773H18.2079C17.9844 23.0781 17.476 23.5 16.8846 23.5C16.2933 23.5 15.7849 23.0781 15.5613 22.4773H7.07692C6.75962 22.4773 6.5 22.1705 6.5 21.7955C6.5 21.4205 6.75962 21.1136 7.07692 21.1136H15.5613ZM9.79207 15.3182C10.0156 14.7173 10.524 14.2955 11.1154 14.2955C11.7067 14.2955 12.2151 14.7173 12.4387 15.3182H20.9231C21.2404 15.3182 21.5 15.625 21.5 16C21.5 16.375 21.2404 16.6818 20.9231 16.6818H12.4387C12.2151 17.2827 11.7067 17.7045 11.1154 17.7045C10.524 17.7045 10.0156 17.2827 9.79207 16.6818H7.07692C6.75962 16.6818 6.5 16.375 6.5 16C6.5 15.625 6.75962 15.3182 7.07692 15.3182H9.79207ZM15.5613 9.52273C15.7849 8.92188 16.2933 8.5 16.8846 8.5C17.476 8.5 17.9844 8.92188 18.2079 9.52273H20.9231C21.2404 9.52273 21.5 9.82955 21.5 10.2045C21.5 10.5795 21.2404 10.8864 20.9231 10.8864H18.2079C17.9844 11.4872 17.476 11.9091 16.8846 11.9091C16.2933 11.9091 15.7849 11.4872 15.5613 10.8864H7.07692C6.75962 10.8864 6.5 10.5795 6.5 10.2045C6.5 9.82955 6.75962 9.52273 7.07692 9.52273H15.5613Z"
+                fill="white"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div
+        routerLink="/auth"
+        routerLinkActive="active"
+        class="autorization-container"
+      >
+        <span class="autorization-email">{{ userName }}</span>
+        <svg
+          width="45"
+          height="45"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g filter="url(#filter0_d_28226_373)">
+            <rect x="2" y="2" width="24" height="24" rx="5" fill="white" />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M26 7C26 4.23858 23.7614 2 21 2H7C4.23858 2 2 4.23858 2 7V21C2 23.7614 4.23858 26 7 26H21C23.7614 26 26 23.7614 26 21V7ZM4.39993 14C4.39993 8.72 8.71993 4.4 13.9999 4.4C19.2799 4.4 23.5999 8.72 23.5999 14C23.5999 19.28 19.2799 23.6 13.9999 23.6C8.71993 23.6 4.39993 19.28 4.39993 14ZM16.8799 10.16C16.8799 8.57692 15.583 7.28 13.9999 7.28C12.4169 7.28 11.1199 8.57692 11.1199 10.16C11.1199 11.7431 12.4169 13.04 13.9999 13.04C15.583 13.04 16.8799 11.7431 16.8799 10.16ZM8.99188 16.7033C8.20027 17.3868 8.52028 18.5762 9.28858 19.2858C10.5257 20.4285 12.1806 21.1446 13.9999 21.1446C15.8176 21.1446 17.4711 20.4272 18.7078 19.2871C19.4783 18.5769 19.7993 17.3852 19.0055 16.7012C17.7911 15.6546 15.3984 15.0938 13.9999 15.0938C12.6005 15.0938 10.2055 15.6553 8.99188 16.7033Z"
+              fill="#3f51b5"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_d_28226_373"
+              x="0"
+              y="0"
+              width="32"
+              height="32"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feOffset dx="2" dy="2" />
+              <feGaussianBlur stdDeviation="2" />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0.184314 0 0 0 0 0.501961 0 0 0 0 0.929412 0 0 0 0.25 0"
+              />
+              <feBlend
+                mode="normal"
+                in2="BackgroundImageFix"
+                result="effect1_dropShadow_28226_373"
+              />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="effect1_dropShadow_28226_373"
+                result="shape"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </div>
+    <app-filtering-criteria *ngIf="viewFilters"></app-filtering-criteria>
+  </div>
+</header>
