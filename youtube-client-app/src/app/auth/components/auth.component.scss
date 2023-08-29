@@ -1,0 +1,9 @@
+mat-card {
+    width: 350px;
+    background: #f2f2f2;
+    margin: 45px auto;
+
+    @media (max-width: 399px) {
+        width: 270px;
+    }
+}

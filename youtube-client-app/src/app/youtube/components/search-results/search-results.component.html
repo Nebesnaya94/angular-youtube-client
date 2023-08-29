@@ -1,0 +1,6 @@
+<div class="results-list">
+  <app-search-item
+    *ngFor="let searchItem of searchItems | filterByWord : filterWord"
+    [searchItem]="searchItem"
+  ></app-search-item>
+</div>

@@ -1,0 +1,122 @@
+<mat-card class="form-card">
+  <mat-card-content>
+    <h2>Create new card</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field">
+        <mat-label>Title</mat-label>
+        <input type="text" matInput formControlName="titleControl" />
+        <mat-error
+          *ngIf="
+            form.get('titleControl')?.invalid &&
+            (form.get('titleControl')?.dirty ||
+              form.get('titleControl')?.touched)
+          "
+        >
+          <span *ngIf="form.get('titleControl')?.hasError('required')"
+            >Please enter a title</span
+          >
+          <span *ngIf="form.get('titleControl')?.hasError('minlength')"
+            >The title is too short</span
+          >
+          <span *ngIf="form.get('titleControl')?.hasError('maxlength')"
+            >The title is too long</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Description</mat-label>
+        <textarea
+          type="text"
+          matInput
+          formControlName="descriptionControl"
+        ></textarea>
+        <mat-error
+          *ngIf="
+            form.get('descriptionControl')?.invalid &&
+            (form.get('descriptionControl')?.dirty ||
+              form.get('descriptionControl')?.touched)
+          "
+        >
+          <span *ngIf="form.get('descriptionControl')?.hasError('maxlength')"
+            >The description is too long</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Link image</mat-label>
+        <input type="text" matInput formControlName="coverImageLinkControl" />
+        <mat-error
+          *ngIf="
+            form.get('coverImageLinkControl')?.invalid &&
+            (form.get('coverImageLinkControl')?.dirty ||
+              form.get('coverImageLinkControl')?.touched)
+          "
+        >
+          <span *ngIf="form.get('coverImageLinkControl')?.hasError('required')">
+            Please enter a link to the image
+          </span>
+          <span *ngIf="form.get('coverImageLinkControl')?.hasError('pattern')">
+            The image link is invalid
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Link video</mat-label>
+        <input type="text" matInput formControlName="videoLinkControl" />
+        <mat-error
+          *ngIf="
+            form.get('videoLinkControl')?.invalid &&
+            (form.get('videoLinkControl')?.dirty ||
+              form.get('videoLinkControl')?.touched)
+          "
+        >
+          <span *ngIf="form.get('videoLinkControl')?.hasError('required')">
+            Please enter a link to the video
+          </span>
+          <span *ngIf="form.get('videoLinkControl')?.hasError('pattern')">
+            The video link is invalid
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Creation date</mat-label>
+        <input
+          type="text"
+          matInput
+          [matDatepicker]="picker"
+          formControlName="creationDateControl"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error
+          *ngIf="
+            form.get('creationDateControl')?.invalid &&
+            (form.get('creationDateControl')?.dirty ||
+              form.get('creationDateControl')?.touched)
+          "
+        >
+          <span *ngIf="form.get('creationDateControl')?.hasError('required')">
+            Please enter a creation date
+          </span>
+          <span *ngIf="form.get('creationDateControl')?.hasError('futureDate')">
+            The date is invalid
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-container">
+        <button
+          type="submit"
+          [disabled]="!form.valid"
+          mat-raised-button
+          color="primary"
+        >
+          Create card
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

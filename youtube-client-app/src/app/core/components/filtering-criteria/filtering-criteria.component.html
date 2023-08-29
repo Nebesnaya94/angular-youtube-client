@@ -1,0 +1,17 @@
+<div class="filter-settings">
+  <span class="filter-title">Sorting by:</span>
+  <ul class="settings-list">
+    <li class="list-item underline" (click)="sortByDate()">date</li>
+    <li class="list-item underline" (click)="sortByCountOfViews()">
+      count of views
+    </li>
+    <li class="list-item input">
+      <span>word or sentence</span
+      ><input
+        [(ngModel)]="filterString"
+        type="text"
+        (input)="filterItemsByWord()"
+      />
+    </li>
+  </ul>
+</div>

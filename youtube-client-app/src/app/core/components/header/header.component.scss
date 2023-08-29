@@ -1,0 +1,155 @@
+header {
+    background: #e5e5e5;
+    padding: 0 150px;
+    min-height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    @media (max-width: 1199px) {
+        padding: 0;
+        justify-content: center;
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    @media (max-width: 1199px) {
+        width: 100%;
+        padding: 0 20px;
+    }
+    @media (max-width: 499px) {
+        padding: 0 5px;
+    }
+}
+
+.header-container {
+    display: flex;
+    gap: 150px;
+    height: 80px;
+    @media (max-width: 1199px) {
+        width: 100%;
+        gap: initial;
+        justify-content: space-between;
+    }
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-field {
+    margin: 0 10px;
+    @media (max-width: 649px) {
+        margin: 0 0px;
+        position: relative;
+        top: -2px;
+    }
+}
+
+.form-field {
+    width: 400px;
+    height: 23.5px;
+    @media (max-width: 899px) {
+        width: 250px;
+    }
+    @media (max-width: 549px) {
+        width: 200px;
+    }
+    input {
+        padding: 0 16px;
+        &:focus {
+            background: #fff;
+        }
+        &::placeholder {
+            color: #929292;
+            font-size: 12px;
+            line-height: 14px;
+        }
+        @media (max-width: 549px) {
+            padding: 0 8px;
+        }
+    }
+}
+
+.mat-mdc-unelevated-button.mat-mdc-button-base {
+    height: 24px;
+    border-radius: 0px 4px 4px 0px;
+    position: relative;
+    top: -2px;
+}
+
+.filter-button {
+    svg {
+        position: relative;
+        cursor: pointer;
+    }
+}
+
+.autorization-container {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+    @media (max-width: 799px) {
+        .autorization-email {
+            display: none;
+        }
+    }
+    svg {
+        margin-left: 10px;
+        position: relative;
+    }
+}
+
+svg {
+    cursor: pointer;
+    &:hover {
+        opacity: 0.95;
+    }
+}
+
+app-filtering-criteria {
+    display: flex;
+    width: 100%;
+}
+
+.admin-logo {
+    margin-right: 30px;
+    @media (max-width: 359px) {
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 649px) {
+    svg {
+        transform: scale(0.8);
+    }
+}
+
+.mat-icon {
+    color: #3f51b5;
+    transform: scale(1.3);
+}
+
+.menu-btn {
+    position: relative;
+    top: -3px;
+    display: none;
+    @media (max-width: 499px) {
+        display: block;
+    }
+    .mat-icon {
+        transform: scale(1.3);
+    }
+}
+
+.admin-link,
+.youtube-logo,
+.filter-button {
+    @media (max-width: 499px) {
+        display: none;
+    }
+}

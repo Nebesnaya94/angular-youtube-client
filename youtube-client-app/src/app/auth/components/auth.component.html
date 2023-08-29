@@ -1,0 +1,66 @@
+<mat-card class="form-card">
+  <mat-card-content>
+    <h2>Login</h2>
+    <form [formGroup]="form" (ngSubmit)="logIn()">
+      <mat-form-field class="form-field">
+        <mat-label>login</mat-label>
+        <input type="email" matInput formControlName="emailControl" />
+        <mat-error
+          *ngIf="
+            form.get('emailControl')?.invalid &&
+            (form.get('emailControl')?.dirty ||
+              form.get('emailControl')?.touched)
+          "
+        >
+          <span *ngIf="form.get('emailControl')?.hasError('required')"
+            >Please enter a login email</span
+          >
+          <span *ngIf="form.get('emailControl')?.hasError('email')"
+            >The login email is invalid</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>password</mat-label>
+        <input matInput formControlName="passwordControl" />
+        <mat-error
+          *ngIf="
+            form.get('passwordControl')?.invalid &&
+            (form.get('passwordControl')?.dirty ||
+              form.get('passwordControl')?.touched)
+          "
+        >
+          <span *ngIf="form.get('passwordControl')?.hasError('required')"
+            >Please enter a password</span
+          >
+          <span *ngIf="form.get('passwordControl')?.hasError('pattern')">
+            Your password isn't strong enough, must be at least 8 characters
+            long and contain at least one uppercase letter, one lowercase
+            letter, one number, and one special character, e.g., ! @ # ? ]
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-container">
+        <ng-container
+          *ngIf="isAuthorized; then deauthorize; else authorize"
+        ></ng-container>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #authorize
+  ><button
+    type="submit"
+    [disabled]="!form.valid"
+    mat-raised-button
+    color="primary"
+  >
+    Login
+  </button></ng-template
+>
+<ng-template #deauthorize
+  ><button (click)="logOut()" mat-raised-button color="primary">
+    Logout
+  </button></ng-template
+>
