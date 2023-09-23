@@ -3,4 +3,31 @@
     *ngFor="let searchItem of searchItems | filterByWord : filterWord"
     [searchItem]="searchItem"
   ></app-search-item>
+
+  <div *ngIf="!searchItems.length" class="empty-block">
+    <img
+      class="empty-pointer"
+      src="../../../../assets/images/arrow-pointer.png"
+      alt=""
+    />
+    <div class="empty-list">
+      <mat-card class="empty-card">
+        <mat-card-content class="empty-card__wrapper">
+          <div class="empty-card__title">Let's get started</div>
+          <div class="empty-card__subscription">
+            (please enter at least 3 characters or create a new one)
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="empty-card">
+        <mat-card-content class="empty-card__wrapper"></mat-card-content>
+      </mat-card>
+      <mat-card class="empty-card"
+        ><mat-card-content class="empty-card__wrapper"></mat-card-content
+      ></mat-card>
+      <mat-card class="empty-card"
+        ><mat-card-content class="empty-card__wrapper"></mat-card-content
+      ></mat-card>
+    </div>
+  </div>
 </div>

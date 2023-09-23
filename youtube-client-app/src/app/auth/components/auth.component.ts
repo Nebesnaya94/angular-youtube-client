@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService, IUser } from '../services/auth.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class AuthComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -48,6 +49,7 @@ export class AuthComponent implements OnInit {
     this.form.disable();
     this.authService.login(this.user.name, this.user.password);
     this.isAuthorized = true;
+    this.router.navigate(['/main']);
   }
 
   logOut() {

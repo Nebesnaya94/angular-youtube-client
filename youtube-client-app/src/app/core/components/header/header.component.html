@@ -14,11 +14,12 @@
           <mat-menu #headerMenu="matMenu">
             <button routerLink="/main" routerLinkActive="active" mat-menu-item>
               <mat-icon>perm_media</mat-icon>
-              <span>Cards list</span>
+              <span>To cards list</span>
             </button>
             <button (click)="changeFiltersVisibility()" mat-menu-item>
               <mat-icon>cached</mat-icon>
-              <span>Card sorting</span>
+              <span *ngIf="!viewFilters">Show card sorting</span>
+              <span *ngIf="viewFilters">Hide card sorting</span>
             </button>
             <button routerLink="/admin" routerLinkActive="active" mat-menu-item>
               <mat-icon>note_add</mat-icon>
